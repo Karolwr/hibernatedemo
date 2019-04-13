@@ -1,10 +1,8 @@
 package entity;
 
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-
 
 @Entity
 public class Author {
@@ -58,7 +56,7 @@ public class Author {
     public void setNick(String nick) {
         this.nick = nick;
     }
-
+//nie robic dla id i tag
     @Override
     public String toString() {
         return "Author{" +

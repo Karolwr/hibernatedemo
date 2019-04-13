@@ -21,7 +21,7 @@ public class Article {
             joinColumns = {@JoinColumn(name = "article_id")},
             inverseJoinColumns = {@JoinColumn(name = "tag_id")})
 
-
+//pole w ktorym jest zior artykulow
     private Set<Tag> tags = new HashSet<>();
 
     public Set<Tag> getTags() {
@@ -55,6 +55,7 @@ public class Article {
     public void setAuthor(Author author) {
         this.author = author;
     }
+//nie robic dla  tag
 
     @Override
     public String toString() {

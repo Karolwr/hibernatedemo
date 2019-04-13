@@ -22,5 +22,13 @@ public class ManyToManyDemo {
             }
             System.out.println();
         }
+        //wyswitlic jakie artykuly maja konretny tag
+        q = em.createQuery("From Tag");
+        List<Tag> tags = q.getResultList();
+        for (Tag t : tags) {
+            for (Article a : t.getArticles()) {
+                System.out.println(a.getTitle());
+            }
+        }
     }
 }
