@@ -20,7 +20,7 @@ public class OneToOneDemo {
         Session session = Persistence.createEntityManagerFactory("hibernate-demo").createEntityManager().unwrap(Session.class);
         //wstawianie user
         //  User user = new User();
-se.beginTransaction();
+        se.beginTransaction();
 //wyswietlanie wszystkich uzytkownikow
         Query q = se.createQuery("from User");
         List<User> users = q.getResultList();
@@ -30,15 +30,15 @@ se.beginTransaction();
 
         users.stream().forEach(a -> System.out.println(a));
 
-        for (User u:users){
-            System.out.println(u+" "+u.getAuthor());
+        for (User u : users) {
+            System.out.println(u + " " + u.getAuthor());
         }
 
         //tworzymy liste autorow nazywamy litse authord na sesli se tworzymy zapytanie from author trzeba je wykonac getresultlist
         List<Author> authors = se.createQuery("From Author").getResultList();
         //wyswietlamy birzemy obiekt author i wyswietlamy jako zmenna a
-        for (Author a:authors){
-            System.out.println(a+" "+a.getUser());
+        for (Author a : authors) {
+            System.out.println(a + " " + a.getUser());
         }
     }
 }

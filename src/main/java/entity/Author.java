@@ -1,7 +1,6 @@
 package entity;
 
 
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,7 +17,7 @@ public class Author {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
     @OneToMany(mappedBy = "author")
-    private Set<Article> articles  = new HashSet<>();
+    private Set<Article> articles = new HashSet<>();
 
     public Set<Article> getArticles() {
         return articles;
@@ -32,16 +31,16 @@ public class Author {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getName() {

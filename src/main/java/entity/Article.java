@@ -1,7 +1,8 @@
 package entity;
 
 import javax.persistence.*;
-import javax.persistence.ManyToOne;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Article {
@@ -14,6 +15,22 @@ public class Article {
     @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
     private Author author;
+    @ManyToMany
+    @JoinTable(
+            name = "article_tag",
+            joinColumns = {@JoinColumn(name = "article_id")},
+            inverseJoinColumns = {@JoinColumn(name = "tag_id")})
+
+
+    private Set<Tag> tags = new HashSet<>();
+
+    public Set<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(Set<Tag> tags) {
+        this.tags = tags;
+    }
 
     public String getTitle() {
         return title;
